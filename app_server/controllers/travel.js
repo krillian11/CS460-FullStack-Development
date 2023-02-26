@@ -11,7 +11,7 @@ const renderTravelList = (req, res, responseBody) => {
     if(!(responseBody instanceof Array)) {
         message = 'API lookup error';
         responseBody = [];
-    }else{
+    } else {
         if(!responseBody.length){
             message = 'No trips exist in database!';
         }
@@ -30,14 +30,12 @@ const travelList = (req, res) => {
     const requestOptions = {
         url: `${apiOptions.server}${path}`,
         method: 'GET',
-        json:{},
+        json: {},
     };
-
     console.info('>> travelController.travelList calling ' +  requestOptions.url);
-
     request(
         requestOptions,
-        (err, {statusCode }, body) => {
+        (err, { statusCode }, body) => {
             if (err) {
                 console.error(err);
             }
